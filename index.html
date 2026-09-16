@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4dev — ferramentas para devs no navegador</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛠️</text></svg>">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+  @theme {
+    --font-mono: ui-monospace, "JetBrains Mono", "Fira Code", SFMono-Regular, Menlo, monospace;
+  }
+  @layer base {
+    html, body { height: 100%; }
+    body { overscroll-behavior: none; }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+  }
+</style>
+</head>
+<body class="h-full bg-zinc-950 text-zinc-100 antialiased">
+  <div class="flex h-full w-full overflow-hidden">
+    <aside id="sidebar" class="group flex h-full w-60 shrink-0 flex-col border-r border-zinc-800 bg-zinc-900/60 transition-[width] duration-200 ease-out">
+      <div class="flex h-14 shrink-0 items-center gap-2 border-b border-zinc-800 px-3">
+        <span class="grid size-8 shrink-0 place-items-center rounded-md bg-emerald-500/15 text-sm font-bold text-emerald-400">4d</span>
+        <span data-sidebar-label class="truncate text-sm font-semibold tracking-tight">4dev</span>
+        <button id="sidebar-toggle" type="button" title="Recolher menu" aria-label="Recolher menu"
+          class="ml-auto grid size-8 shrink-0 place-items-center rounded-md text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100">
+          <svg id="sidebar-toggle-icon" class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 18l-6-6 6-6"></path>
+          </svg>
+        </button>
+      </div>
+      <nav id="tool-nav" class="flex-1 overflow-y-auto p-2"></nav>
+      <div data-sidebar-label class="shrink-0 border-t border-zinc-800 px-3 py-3 text-[11px] leading-relaxed text-zinc-500">
+        Tudo roda no seu navegador.<br>Nenhum dado sai da máquina.
+      </div>
+    </aside>
+    <main id="tool-view" class="flex h-full min-w-0 flex-1 flex-col"></main>
+  </div>
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
